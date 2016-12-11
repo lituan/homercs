@@ -142,10 +142,10 @@ let g:UltiSnipsExpandTrigger           = '<TAB>'
 let g:UltiSnipsJumpForwardTrigger      = '<TAB>'
 let g:UltiSnipsJumpBackwardTrigger     = '<S-TAB>'
 "youcomplete
-"let g:ycm_key_list_select_completion   = [ '<C-TAB>','<Down>' ]
-"let g:ycm_key_list_previous_completion = [ '<C-S-TAB>','<Up>']
+let g:ycm_key_list_select_completion   = [ '<C-TAB>','<Down>' ]
+let g:ycm_key_list_previous_completion = [ '<C-S-TAB>','<Up>']
 "supertab
-"let g:SuperTabDefaultCompletionType    = '<C-TAB>'
+let g:SuperTabDefaultCompletionType    = '<C-TAB>'
 let g:SuperTabDefaultCompletionType    = '<C-X><C-O>'
 " jedi-vim
 
