@@ -1,0 +1,73 @@
+#load pymol-script
+import sys,os
+pymol_git = os.path.abspath(os.path.join(os.path.expanduser('~'),'Pymol-script-repo-master'))
+os.environ['PYMOL_GIT_MOD'] = os.path.join(pymol_git,'modules')
+sys.path.append(pymol_git)
+sys.path.append(os.environ['PYMOL_GIT_MOD'])
+
+# Make setting changes to Plugin Manager
+import pymol.plugins
+pymol.plugins.preferences = {'instantsave': False, 'verbose': False}
+pymol.plugins.autoload = {'apbs_tools': False}
+pymol.plugins.set_startup_path([os.path.join(pymol_git, 'plugins'), os.path.join(sys.prefix, 'Lib', 'site-packages', 'pmg_tk', 'startup')])
+pymol.plugins.preferences = {'instantsave': True, 'verbose': False}
+
+# Enable single letter residue names
+aa = {'VAL':'V', 'ILE':'I', 'LEU':'L', 'GLU':'E', 'GLN':'Q', 'ASP':'D', 'ASN':'N', 'HIS':'H', 'TRP':'W', 'PHE':'F', 'TYR':'Y', 'ARG':'R', 'LYS':'K', 'SER':'S', 'THR':'T', 'MET':'M', 'ALA':'A', 'GLY':'G', 'PRO':'P', 'CYS':'C'}
+
+#fetch defautl format as pdb instead of mmcif
+python
+from pymol import cmd
+
+def fetchpdb(*args, **kwargs):
+    if 'type' not in kwargs:
+        kwargs['type'] = 'pdb'
+    return cmd.fetch(*args, **kwargs)
+
+cmd.extend('fetch', fetchpdb)
+python end
+
+# suppress using TER when saving molecules
+set pdb_use_ter_records, 0
+#set memory pymol use to ray_trace
+set hash_max,1000
+
+# Better display quality
+util.performance(0)
+set antialias, 2
+set ribbon_smooth, 1
+set use_shaders
+set cartoon_fancy_helices,1
+#set surface_quality=1
+set transparency_mode=1
+#transparency background
+#bg_color,white
+set bg_rgb,[1,1,1]
+set opaque_background,0
+set ray_opaque_background,0
+
+#sphere
+set sphere_scale,0.3
+#label
+set label_size,25
+
+alias showsc,select sca, (neighbor (name ca)) and sc. and e. c;show sticks, sca or (name ca);show sphere,sca;set sphere_scale,0.3
+# alias
+alias usual_scene,hide;show cartoon,polymer;show sticks,orgnaic;show nonbonded,solvent
+
+alias cc,delete *
+alias pdb,cd E:\PDB
+alias phos,cd D:\WD40\Phosphoprotein_in_PDB\phos_pdb
+alias desk,cd c:\Users\litua\Desktop
+#alias home,cd c:\Python27\PyMOL
+#alias scripts,cd c:\Python27\PyMOL\scripts
+#alias qq,cd c:\Python27\PyMOL\snake
+alias source, @ C:\Users\tuan\.pymolrc
+alias pretty, preset.pretty(selection='all')
+
+
+#work path
+set fetch_path,E:\PDB
+#set fetch_host,pdb
+#scripts
+#run c:\python27\pymol\scripts\spectrumbar.py
