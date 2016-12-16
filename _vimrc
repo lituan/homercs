@@ -84,7 +84,7 @@ Plugin 'haya14busa/incsearch-fuzzy.vim'      " modules of incsearch.vim
 Plugin 'haya14busa/incsearch-easymotion.vim' " integrate incsearch.vim with easymotion
 " autocomplete
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'davidhalter/jedi-vim'
+"Plugin 'davidhalter/jedi-vim'
 Plugin 'ervandew/supertab'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'

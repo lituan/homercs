@@ -62,7 +62,7 @@ alias desk,cd c:\Users\litua\Desktop
 #alias home,cd c:\Python27\PyMOL
 #alias scripts,cd c:\Python27\PyMOL\scripts
 #alias qq,cd c:\Python27\PyMOL\snake
-alias source, @ C:\Users\tuan\.pymolrc
+alias source, @ ~\.pymolrc
 alias pretty, preset.pretty(selection='all')
 
 
