@@ -1,6 +1,6 @@
 #load pymol-script
 import sys,os
-pymol_git = os.path.abspath(os.path.join(os.path.expanduser('~'),'Pymol-script-repo-master'))
+pymol_git = os.path.abspath(os.path.join(os.path.expanduser('~'),'Pymol-script-repo'))
 os.environ['PYMOL_GIT_MOD'] = os.path.join(pymol_git,'modules')
 sys.path.append(pymol_git)
 sys.path.append(os.environ['PYMOL_GIT_MOD'])
